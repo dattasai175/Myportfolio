@@ -76,7 +76,7 @@ export default function NotFound() {
           className="text-foreground/60 mb-8 max-w-md mx-auto"
         >
           The page you&apos;re looking for seems to have wandered off into the data void. 
-          Let's get you back on track!
+          Let&apos;s get you back on track!
         </motion.p>
 
         <motion.div
