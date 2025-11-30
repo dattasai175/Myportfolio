@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useEffect } from "react"
+import Image from "next/image"
 
 const techLogos = [
   // Tier-1 Core
@@ -251,22 +252,25 @@ function CyberpunkNeuralNetwork() {
                 )}
 
                         {/* Logo image - responsive sizing */}
-                        <img
+                        <Image
                           src={logo.icon}
                           alt={logo.name}
+                          width={hoveredIndex === originalIndex ? 22 : 20}
+                          height={hoveredIndex === originalIndex ? 22 : 20}
                           className="relative z-10"
                           style={{
                             width: hoveredIndex === originalIndex ? "clamp(18px, 3vw, 22px)" : "clamp(16px, 2.5vw, 20px)",
                             height: hoveredIndex === originalIndex ? "clamp(18px, 3vw, 22px)" : "clamp(16px, 2.5vw, 20px)",
-                    objectFit: "contain",
-                    filter: surging ? "brightness(1.5) contrast(1.2)" : "brightness(1) contrast(1)",
-                    transition: "filter 0.15s ease-out, width 0.15s ease-out, height 0.15s ease-out",
-                    imageRendering: "crisp-edges",
-                  }}
-                  onError={() => {
-                    setFailedIcons((prev) => new Set(prev).add(originalIndex))
-                  }}
-                />
+                            objectFit: "contain",
+                            filter: surging ? "brightness(1.5) contrast(1.2)" : "brightness(1) contrast(1)",
+                            transition: "filter 0.15s ease-out, width 0.15s ease-out, height 0.15s ease-out",
+                            imageRendering: "crisp-edges",
+                          }}
+                          onError={() => {
+                            setFailedIcons((prev) => new Set(prev).add(originalIndex))
+                          }}
+                          unoptimized
+                        />
               </div>
               </div>
             </div>

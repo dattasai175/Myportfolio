@@ -51,19 +51,19 @@ export default function About() {
             className="glass rounded-2xl p-8 md:p-12 space-y-6"
           >
             <p className="text-xl text-foreground/90 leading-relaxed font-medium">
-              Hey, I'm Datta.
+              Hey, I&apos;m Datta.
             </p>
             <p className="text-lg text-foreground/90 leading-relaxed">
               Just a curious developer and lifelong student trying to build things that matter — mostly with AI, clean code, and a bit of stubborn optimism.
             </p>
             <p className="text-lg text-foreground/90 leading-relaxed">
-              When I'm not coding, you'll find me sketching or lost in a game.
+              When I&apos;m not coding, you&apos;ll find me sketching or lost in a game.
             </p>
             <p className="text-lg text-foreground/90 leading-relaxed">
               Nothing fancy, just quietly working on ideas I hope might outlast me.
             </p>
             <p className="text-lg text-foreground/90 leading-relaxed">
-              Let's make something worthwhile together ✦
+              Let&apos;s make something worthwhile together ✦
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mt-8">

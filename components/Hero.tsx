@@ -32,7 +32,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="text-neon-cyan font-mono text-sm">Hello, I'm</span>
+              <span className="text-neon-cyan font-mono text-sm">Hello, I&apos;m</span>
             </motion.div>
 
             <motion.h1

@@ -75,7 +75,7 @@ export default function NotFound() {
           transition={{ delay: 0.3 }}
           className="text-foreground/60 mb-8 max-w-md mx-auto"
         >
-          The page you're looking for seems to have wandered off into the data void. 
+          The page you&apos;re looking for seems to have wandered off into the data void. 
           Let's get you back on track!
         </motion.p>
 
