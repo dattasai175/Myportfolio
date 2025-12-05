@@ -27,8 +27,13 @@ export default function Projects() {
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const scrollAmount = 400
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+      const currentScroll = scrollRef.current.scrollLeft
+      const targetScroll = direction === "left" 
+        ? currentScroll - scrollAmount 
+        : currentScroll + scrollAmount
+      
+      scrollRef.current.scrollTo({
+        left: targetScroll,
         behavior: "smooth",
       })
     }
@@ -56,8 +61,28 @@ export default function Projects() {
           <div className="relative">
             <div
               ref={scrollRef}
+              data-horizontal-scroll
+              data-lenis-prevent
               className="flex gap-6 overflow-x-auto scrollbar-hide pb-6 snap-x snap-mandatory"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              onWheel={(e) => {
+                const element = scrollRef.current
+                if (!element) return
+                
+                // Check if horizontal scrolling is needed
+                const isScrollable = element.scrollWidth > element.clientWidth
+                const isAtStart = element.scrollLeft <= 0
+                const isAtEnd = element.scrollLeft >= element.scrollWidth - element.clientWidth - 1
+                
+                // If horizontal scroll is possible and user is scrolling horizontally
+                if (isScrollable && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                  e.stopPropagation()
+                  // Allow native horizontal scrolling
+                } else if (isScrollable && !isAtStart && !isAtEnd && e.deltaY !== 0) {
+                  // If in the middle of horizontal scroll area, prevent vertical scroll
+                  e.stopPropagation()
+                }
+              }}
             >
               {projects.map((project, index) => (
                 <motion.div
